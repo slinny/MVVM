@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ItunesViewController-->
+        <!--ViewController-->
         <scene sceneID="xDL-sC-D5f">
             <objects>
-                <viewController storyboardIdentifier="ItunesViewController" title="ItunesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Hz-Kv-Jr4" customClass="ItunesViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Hz-Kv-Jr4" customClass="ViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2WB-oy-vw6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,36 +37,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMF-vB-PAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="41" y="-696"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="boF-8W-8S2">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="boF-8W-8S2" secondAttribute="trailing" id="0nR-4e-yeC"/>
-                            <constraint firstItem="boF-8W-8S2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="P9Y-VC-X0f"/>
-                            <constraint firstItem="boF-8W-8S2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sn3-en-TKy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="boF-8W-8S2" secondAttribute="bottom" id="zZV-ag-mvx"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="todoTable" destination="boF-8W-8S2" id="xJv-nO-TKm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="50" y="-2"/>
         </scene>
     </scenes>
     <resources>

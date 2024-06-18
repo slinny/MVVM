@@ -1,11 +1,11 @@
 import Foundation
 
-class ItunesViewModel {
+class ViewModel {
     
     private var records = [Result]()
     
     func fetchData(completion: @escaping () -> ()) {
-        ItunesAPIManager.shared.fetchData(ItunesConstants.URL.rawValue) { (data: Results?) in
+        APIManager.shared.fetchData(from: Constants.URL.rawValue) { (data: Results?) in
             guard let receivdData = data else {
                 return
             }
