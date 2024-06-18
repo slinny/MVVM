@@ -15,7 +15,7 @@ class ViewModel {
         }
     }
     
-    func getResults() -> [Result] {
+    func getData() -> [Result] {
         return records
     }
 }

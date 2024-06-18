@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 
-class ItunesAPIManager {
-    static let shared = ItunesAPIManager()
+class APIManager {
+    static let shared = APIManager()
     
     func fetchData<T: Codable>(from url: String, closure: @escaping ((T?) -> ()) ) {
         guard let serverURL = URL(string: url) else {

@@ -1,10 +1,9 @@
 import UIKit
 
-class ItunesViewController: UIViewController {
+class ViewController: UIViewController {
     
     @IBOutlet weak var ituneTable: UITableView!
-    private var records = [Result]()
-    private var viewModel = ItunesViewModel()
+    private var viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,28 +14,27 @@ class ItunesViewController: UIViewController {
 }
 
 
-extension ItunesViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        records.count
+        viewModel.getData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = ituneTable.dequeueReusableCell(withIdentifier: "ItunesTableViewCell") as? ItunesTableViewCell else { return ItunesTableViewCell() }
-        cell.updateRecord(records[indexPath.row])
+        guard let cell = ituneTable.dequeueReusableCell(withIdentifier: "TableViewCell") as? TableViewCell else { return TableViewCell() }
+        cell.updateRecord(viewModel.getData()[indexPath.row])
         return cell
     }
 }
 
-extension ItunesViewController {
+extension ViewController {
     fileprivate func setupTable() {
         ituneTable.dataSource = self
-        ituneTable.register(UINib(nibName: "ItunesTableViewCell", bundle: nil), forCellReuseIdentifier: "ItunesTableViewCell")
+        ituneTable.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     }
     
     fileprivate func fetchData() {
         viewModel.fetchData {
             DispatchQueue.main.async {
-                self.records = self.viewModel.getResults()
                 self.ituneTable.reloadData()
             }
         }
