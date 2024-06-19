@@ -1,6 +1,6 @@
 import Foundation
 
-class ViewModel {
+class ItunesViewModel {
     
     private var records = [Result]()
     

@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ItunesViewController: UIViewController {
     
     @IBOutlet weak var ituneTable: UITableView!
     private var viewModel = ViewModel()
@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     }
 }
 
-
-extension ViewController: UITableViewDataSource {
+extension ItunesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getData().count
     }
@@ -26,7 +25,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController {
+extension ItunesViewController {
     fileprivate func setupTable() {
         ituneTable.dataSource = self
         ituneTable.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")

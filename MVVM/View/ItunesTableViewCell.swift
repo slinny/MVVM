@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class ItunesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var albumPic: UIImageView!
     @IBOutlet weak var albumTitle: UILabel!
@@ -21,12 +21,15 @@ class TableViewCell: UITableViewCell {
     }
 }
 
-extension TableViewCell {
+extension ItunesTableViewCell {
+    
+    // MARK: update record
     func updateRecord(_ record: Result) {
         self.record = record
         updateData()
     }
     
+    // MARK: update cell based on record
     func updateData() {
         if let record = record {
             albumPic.fetchAndSetImage(from: record.artworkUrl60)
@@ -36,12 +39,14 @@ extension TableViewCell {
         }
     }
     
+    // MARK: add border to imageView
     fileprivate func addBorderToImageView() {
         albumPic.layer.borderWidth = 0.5
         albumPic.layer.borderColor = UIColor.systemGray.cgColor
         albumPic.clipsToBounds = true
     }
     
+    // MARK: customize label
     fileprivate func customizePriceLabel() {
         albumPrice.layer.borderWidth = 1.0
         albumPrice.layer.borderColor = UIColor.systemBlue.cgColor
