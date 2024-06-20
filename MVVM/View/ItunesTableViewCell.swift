@@ -8,8 +8,6 @@ class ItunesTableViewCell: UITableViewCell {
     @IBOutlet weak var albumPrice: UILabel!
     @IBOutlet weak var albumStack: UIStackView!
     
-    private var record: Result?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,21 +18,12 @@ class ItunesTableViewCell: UITableViewCell {
 }
 
 extension ItunesTableViewCell {
-    
-    // MARK: update record
-    func updateRecord(_ record: Result) {
-        self.record = record
-        updateData()
-    }
-    
-    // MARK: update cell based on record
-    func updateData() {
-        if let record = record {
-            albumPic.fetchAndSetImage(from: record.artworkUrl60)
-            albumTitle.text = record.primaryGenreName
-            albumDes.text = "\(record.artistName) - \(record.primaryGenreName) - \(record.wrapperType)"
-            albumPrice.text = "   $\(record.collectionPrice)"
-        }
+    // MARK: configure cell data
+    func configureItunesCell(record: Result) {
+        albumPic.fetchAndSetImage(from: record.artworkUrl60)
+        albumTitle.text = record.primaryGenreName
+        albumDes.text = "\(record.artistName) - \(record.primaryGenreName) - \(record.wrapperType)"
+        albumPrice.text = "   $\(record.collectionPrice)"
     }
     
     // MARK: add border to imageView

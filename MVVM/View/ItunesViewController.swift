@@ -25,7 +25,7 @@ extension ItunesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = ituneTable.dequeueReusableCell(withIdentifier: "ItunesTableViewCell") as? ItunesTableViewCell else { return ItunesTableViewCell() }
-        cell.updateRecord(ituneViewModel.getData()[indexPath.row])
+        cell.configureItunesCell(record: ituneViewModel.getData()[indexPath.row])
         return cell
     }
 }
