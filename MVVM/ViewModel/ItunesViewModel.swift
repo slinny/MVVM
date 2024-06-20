@@ -4,8 +4,8 @@ class ItunesViewModel {
     
     private var records = [Result]()
     
-    func fetchData(completion: @escaping () -> ()) {
-        APIManager.shared.fetchData(from: Constants.URL.rawValue) { (data: Results?) in
+    func fetchData(from urlString: String, completion: @escaping () -> ()) {
+        APIManager.shared.fetchData(from: urlString) { (data: Results?) in
             guard let receivdData = data else {
                 return
             }
@@ -17,5 +17,9 @@ class ItunesViewModel {
     
     func getData() -> [Result] {
         return records
+    }
+    
+    func clearData() {
+        records = []
     }
 }

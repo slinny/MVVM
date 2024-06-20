@@ -1,9 +1,11 @@
 import Foundation
 
+// MARK: constants
 enum Constants: String {
-    case URL = "https://itunes.apple.com/search?term=a"
+    case baseURL = "https://itunes.apple.com/"
 }
 
+// MARK: error messsages
 enum APIError: String {
     case invalidURLError = "Invalid URL"
     case fetchDataError = "Error fetching data"

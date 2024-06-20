@@ -1,5 +1,6 @@
 import Foundation
 
+// MARK: model classes
 struct Results: Codable {
     let results: [Result]
 }

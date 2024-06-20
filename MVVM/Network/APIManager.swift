@@ -4,6 +4,7 @@ import UIKit
 class APIManager {
     static let shared = APIManager()
     
+    // MARK: fetch data
     func fetchData<T: Codable>(from url: String, closure: @escaping ((T?) -> ()) ) {
         guard let serverURL = URL(string: url) else {
             print(APIError.invalidURLError)
@@ -29,6 +30,7 @@ class APIManager {
         }.resume()
     }
     
+    // MARK: fetch image
     func fetchImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageUrl = URL(string: urlString) else {
             print(APIError.invalidURLError)
@@ -50,5 +52,4 @@ class APIManager {
             completion(image)
         }.resume()
     }
-    
 }

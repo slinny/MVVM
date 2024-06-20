@@ -6,18 +6,16 @@ class ItunesTableViewCell: UITableViewCell {
     @IBOutlet weak var albumTitle: UILabel!
     @IBOutlet weak var albumDes: UILabel!
     @IBOutlet weak var albumPrice: UILabel!
+    @IBOutlet weak var albumStack: UIStackView!
     
-    var record: Result?
+    private var record: Result?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        albumStack.spacing = 0
         addBorderToImageView()
         customizePriceLabel()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }
 
