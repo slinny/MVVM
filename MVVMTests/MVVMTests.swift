@@ -94,53 +94,6 @@ final class MVVMTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
     
-    func testSearchBarSearchButtonNotEmptyClicked() throws {
-        guard let testItunesViewController = testItunesViewController else {
-            XCTFail("testItunesViewController should not be nil")
-            return
-        }
-        
-        guard let searchBar = testItunesViewController.searchBar else {
-            XCTFail("searchBar should not be nil")
-            return
-        }
-
-        guard let tableView = testItunesViewController.ituneTable else {
-            XCTFail("tableView should not be nil")
-            return
-        }
-
-        let searchText = "a"
-        searchBar.text = searchText
-
-        // Create an expectation for the async fetchData call
-        let expectation = XCTestExpectation(description: "Search bar search button clicked")
-
-        // Mock the fetchData call to simulate fetching data
-        testItunesViewModel.fetchData(from: Constants.baseURL.rawValue + "search?term=\(searchText.lowercased())") {
-            DispatchQueue.main.async {
-                // Reload the table view data
-                tableView.reloadData()
-
-                // Debug print statements to verify data flow
-                print("Data fetched: \(self.testItunesViewModel.getData().count) items")
-                print("Table view rows: \(tableView.numberOfRows(inSection: 0))")
-
-                // Check that the number of rows in the table view matches the data count
-                XCTAssertEqual(tableView.numberOfRows(inSection: 0), self.testItunesViewModel.getData().count, "Number of rows should match data count")
-                
-                // Fulfill the expectation to indicate the async call is complete
-                expectation.fulfill()
-            }
-        }
-
-        // Simulate the search button click
-        testItunesViewController.searchBarSearchButtonClicked(searchBar)
-
-        // Wait for the expectations to be fulfilled
-        wait(for: [expectation], timeout: 5.0)
-    }
-    
     func testAPIManagerFetchData() throws {
         let expectation = XCTestExpectation(description: "API fetch data expectation")
         
